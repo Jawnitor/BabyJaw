@@ -100,4 +100,4 @@ client.on("guildMemberRemove", member => {
 });
 
  
-client.login('NzE4OTI3ODAwMzM3NDMyNjE2.Xtv_sA.h18jvjkavh1fOl3iqEgB2PBVTBQ');
+client.login('HIDDEN_FOR_SECURITY_MESSURES');
