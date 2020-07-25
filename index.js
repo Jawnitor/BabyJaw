@@ -246,4 +246,4 @@ client.on("guildMemberRemove", member => {
 });
 
 
-client.login('HIDDEN_OF_SECURITY_REASONS');
+client.login('NzE4OTI3ODAwMzM3NDMyNjE2.Xtv_sA.5SUJ8mdtDT_gzVuPK38aeEat064');
