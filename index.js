@@ -47,7 +47,7 @@ client.on('message', message => {
     //reaction roles
     //const roleChannel = member.guild.channels.cache.find(channel => channel.name === '¬roles');
     let Channel = client.channels.cache.get("736165492733247519");
-    if (command == 'set.roles.here') {
+    if (command == 'roles') {
         if (message.member.roles.cache.has('736160266173284454')) {
             //gender
             const embed = new Discord.MessageEmbed()
@@ -72,11 +72,12 @@ client.on('message', message => {
             const embed3 = new Discord.MessageEmbed()
                 .setColor(0xffffff)
                 .setTitle("select Your Course Role!")
-                .setDescription(`<@&736159845245517825> = <:lvl2Games:736581064834678814>\n\n<@&736159769617760326> = <:lvl3games:736581064792866908>\n\n<@&736159891659685920> = <:Lvl3comp:736581795260268644>`);
+                .setDescription(`<@&736676111060303932> = <:IT:736677114455261256>\n\n<@&736159845245517825> = <:lvl2Games:736581064834678814>\n\n<@&736159769617760326> = <:lvl3games:736581064792866908>\n\n<@&736159891659685920> = <:Lvl3comp:736581795260268644>`);
             Channel.send(embed3).then(async message => {
                 await message.react("<:lvl2Games:736581064834678814>");
                 await message.react("<:lvl3games:736581064792866908>");
                 await message.react("<:Lvl3comp:736581795260268644>");
+                await message.react("<:IT:736677114455261256>");
             });
 
         } else {
@@ -128,6 +129,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
             await reaction.message.guild.members.cache.get(user.id).roles.add("736159891659685920");
             return user.send("LVL3Comp Role Given").catch(() => console.log("Failed to Send DM"));
         }
+        else if (reaction._emoji.id === "736677114455261256") {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("736676111060303932");
+            return user.send("IT Role Given").catch(() => console.log("Failed to Send DM"));
+        }
     } else return;
 
 });
@@ -167,15 +172,19 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
         if (reaction._emoji.id === "736581064834678814") {
             await reaction.message.guild.members.cache.get(user.id).roles.remove("736159845245517825");
-            return user.send("LVL3Games Role Given").catch(() => console.log("Failed to Send DM"));
+            return user.send("LVL3Games Role taken").catch(() => console.log("Failed to Send DM"));
         }
         else if (reaction._emoji.id === "736581064792866908") {
             await reaction.message.guild.members.cache.get(user.id).roles.remove("736159769617760326");
-            return user.send("LVL2Games Role Given").catch(() => console.log("Failed to Send DM"));
+            return user.send("LVL2Games Role taken").catch(() => console.log("Failed to Send DM"));
         }
         else if (reaction._emoji.id === "736581795260268644") {
             await reaction.message.guild.members.cache.get(user.id).roles.remove("736159891659685920");
-            return user.send("LVL3Comp Role Given").catch(() => console.log("Failed to Send DM"));
+            return user.send("LVL3Comp Role taken").catch(() => console.log("Failed to Send DM"));
+        }
+        else if (reaction._emoji.id === "736677114455261256") {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("736676111060303932");
+            return user.send("IT Role taken").catch(() => console.log("Failed to Send DM"));
         }
     } else {
         return;
